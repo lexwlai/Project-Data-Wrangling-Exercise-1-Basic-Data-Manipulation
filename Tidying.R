@@ -26,12 +26,15 @@ refine_original$`Product Code` <- sub("v", replacement = "TV", refine_original$`
 refine_original$`Product Code` <- sub("x", replacement = "Laptop", refine_original$`Product Code` )
 refine_original$`Product Code` <- sub("q", replacement = "Tablet", refine_original$`Product Code` )
 
+#Address/Geocoding
+refine_original <-
+  unite(refine_original, full_address, address, city, country, sep = ", ")
 
 
 
 
-
-
+refine_clean <- refine_original
+View(refine_clean)
 
 
 
