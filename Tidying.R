@@ -22,10 +22,9 @@ refine <-
   mutate(company = str_replace(company, "f", "ph")) %>%
   mutate(company = str_replace(company,"u.*r", "unilever"))
 
-
 #Product Code/Number
 refine <- 
-  separate(refine_original, `Product code / number`, into = c("Product Code", "Number"), sep = "-")
+  separate(refine, `Product code / number`, into = c("Product Code", "Number"), sep = "-")
 refine$`Product Code` <- sub("p", replacement = "Smartphone", refine$`Product Code` )
 refine$`Product Code` <- sub("v", replacement = "TV", refine$`Product Code` )
 refine$`Product Code` <- sub("x", replacement = "Laptop", refine$`Product Code` )
