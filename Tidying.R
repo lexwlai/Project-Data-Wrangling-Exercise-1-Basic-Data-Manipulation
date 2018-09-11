@@ -26,10 +26,10 @@ refine <-
 #Product Code/Number
 refine <- 
   separate(refine_original, `Product code / number`, into = c("Product Code", "Number"), sep = "-")
-refine$`Product Code` <- sub("p", replacement = "Smartphone", refine_original$`Product Code` )
-refine$`Product Code` <- sub("v", replacement = "TV", refine_original$`Product Code` )
-refine$`Product Code` <- sub("x", replacement = "Laptop", refine_original$`Product Code` )
-refine$`Product Code` <- sub("q", replacement = "Tablet", refine_original$`Product Code` )
+refine$`Product Code` <- sub("p", replacement = "Smartphone", refine$`Product Code` )
+refine$`Product Code` <- sub("v", replacement = "TV", refine$`Product Code` )
+refine$`Product Code` <- sub("x", replacement = "Laptop", refine$`Product Code` )
+refine$`Product Code` <- sub("q", replacement = "Tablet", refine$`Product Code` )
 
 #Address/Geocoding
 refine <-
