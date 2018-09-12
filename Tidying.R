@@ -18,7 +18,7 @@ refine <-
   mutate(company = tolower(company)) %>%
   mutate(company = str_replace(company,"a.*o", "akzo")) %>% 
   mutate(company = str_replace(company, "0", "o")) %>% 
-  mutate(company = str_replace(company, "p.*s", "phillips")) %>% 
+  mutate(company = str_replace(company, "ph.*s", "philips")) %>% 
   mutate(company = str_replace(company, "f", "ph")) %>%
   mutate(company = str_replace(company,"u.*r", "unilever"))
 
@@ -33,6 +33,22 @@ refine$`Product Code` <- sub("q", replacement = "Tablet", refine$`Product Code` 
 #Address/Geocoding
 refine <-
   unite(refine, full_address, address, city, country, sep = ", ")
+
+##Dummy Variables
+#Company
+refine <-
+  refine %>%
+  add_column(company_philips = c("1")) %>%
+  add_column(company_akzo = 1:25) %>%
+  add_column(company_van_houten = 1:25) %>%
+  add_column(company_unilever = 1:25)
+#Products
+refine <-
+  refine %>%
+  add_column(product_smartphone = 1:25) %>%
+  add_column(product_tv = 1:25) %>%
+  add_column(product_laptop = 1:25) %>%
+  add_column(company_tablet = 1:25)
 
 
 View(refine)
