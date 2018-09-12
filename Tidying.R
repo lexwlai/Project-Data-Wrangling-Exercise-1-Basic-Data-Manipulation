@@ -59,6 +59,7 @@ refine <-
   mutate(company_tablet = 
            ifelse(refine$`Product Code` == "Tablet", "1", "0"))
 
+
 View(refine)
 
 
